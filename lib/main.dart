@@ -36,8 +36,21 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void getHttp() async {
+    try {
+      Dio dio = Dio();
+      Response response =
+          await dio.get("https://www.v2ex.com/api/topics/hot.json");
+      print(response);
+    } catch (e) {
+      print(e.error);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    getHttp();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
