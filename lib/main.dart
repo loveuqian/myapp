@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:random_color/random_color.dart';
+import 'package:dio/dio.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: RandomColor().randomMaterialColor(),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Super Flutter'),
