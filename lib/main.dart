@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
+import 'webpagetest_page.dart';
+import 'v2ex_hot_page.dart';
+
 import 'package:random_color/random_color.dart';
-import 'package:dio/dio.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,10 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: RandomColor().randomMaterialColor(),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Super Flutter'),
     );
@@ -36,21 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void getHttp() async {
-    try {
-      Dio dio = Dio();
-      Response response = await dio
-          .get("https://web.cloudmall.co/api/v/4.3.17/shopping/global_control");
-      print(response);
-    } catch (e) {
-      print(e.error);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    getHttp();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -65,6 +53,24 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WebPageTestPage()),
+                );
+              },
+              child: Text('webpagetest'),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => V2exHotPage()),
+                );
+              },
+              child: Text('v2ex_hot'),
             ),
           ],
         ),
