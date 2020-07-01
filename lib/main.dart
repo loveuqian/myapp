@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: RandomColor().randomMaterialColor(),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          foregroundColor: RandomColor().randomColor(),
+        ),
       ),
       home: MyHomePage(title: 'Super Flutter'),
     );
