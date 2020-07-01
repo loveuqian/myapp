@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'webpagetest_page.dart';
+import 'search_hot_page.dart';
 import 'v2ex_hot_page.dart';
 
 import 'package:random_color/random_color.dart';
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            FlatButton(
+            RaisedButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -66,7 +67,16 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text('webpagetest'),
             ),
-            FlatButton(
+            RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchHotPage()),
+                );
+              },
+              child: Text('search_hot'),
+            ),
+            RaisedButton(
               onPressed: () {
                 Navigator.push(
                   context,
