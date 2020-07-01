@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'webpagetest_page.dart';
+import 'v2ex_hot_page.dart';
 
 import 'package:random_color/random_color.dart';
 import 'package:dio/dio.dart';
@@ -68,11 +69,22 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             FlatButton(
-              onPressed: () => {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WebPageTestPage()))
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WebPageTestPage()),
+                );
               },
               child: Text('webpagetest'),
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => V2exHotPage()),
+                );
+              },
+              child: Text('v2ex_hot'),
             ),
           ],
         ),
