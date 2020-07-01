@@ -12,9 +12,9 @@ class _V2exHotPageState extends State<V2exHotPage> {
 
   _loadData() async {
     Dio dio = Dio();
-    Response response =
-        await dio.get("https://www.v2ex.com/api/topics/hot.json");
-    _dataList = response.data;
+    Response response = await dio
+        .get('https://web.cloudmall.co/api/search/hot_search?region=US');
+    _dataList = response.data['data']['searches'];
   }
 
   @override
@@ -26,7 +26,6 @@ class _V2exHotPageState extends State<V2exHotPage> {
       body: FutureBuilder(
         future: _loadData(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-          print(snapshot);
           if (ConnectionState.waiting != snapshot.connectionState) {
             return ListView.builder(
               itemCount: _dataList.length,
@@ -37,8 +36,8 @@ class _V2exHotPageState extends State<V2exHotPage> {
                   child: InkWell(
                     onTap: () {},
                     child: ListTile(
-                      title: Text(map['title']),
-                      subtitle: Text(map['content']),
+                      title: Text(map['searchText']),
+                      subtitle: Text(map['searchOpt'].toString()),
                     ),
                   ),
                 );
