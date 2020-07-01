@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        brightness: Brightness.dark,
         primarySwatch: RandomColor().randomMaterialColor(),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           foregroundColor: RandomColor().randomColor(),
