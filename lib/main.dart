@@ -4,7 +4,6 @@ import 'webpagetest_page.dart';
 import 'v2ex_hot_page.dart';
 
 import 'package:random_color/random_color.dart';
-import 'package:dio/dio.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,21 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void getHttp() async {
-    try {
-      Dio dio = Dio();
-      Response response = await dio
-          .get("https://web.cloudmall.co/api/v/4.3.17/shopping/global_control");
-      print(response);
-    } catch (e) {
-      print(e.error);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    getHttp();
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
