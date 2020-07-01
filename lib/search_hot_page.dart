@@ -2,26 +2,26 @@ import 'package:flutter/material.dart';
 
 import 'package:dio/dio.dart';
 
-class V2exHotPage extends StatefulWidget {
+class SearchHotPage extends StatefulWidget {
   @override
-  _V2exHotPageState createState() => _V2exHotPageState();
+  _SearchHotPageState createState() => _SearchHotPageState();
 }
 
-class _V2exHotPageState extends State<V2exHotPage> {
+class _SearchHotPageState extends State<SearchHotPage> {
   var _dataList = [];
 
   _loadData() async {
     Dio dio = Dio();
-    Response response =
-        await dio.get('https://www.v2ex.com/api/topics/hot.json');
-    _dataList = response.data;
+    Response response = await dio
+        .get('https://web.cloudmall.co/api/search/hot_search?region=US');
+    _dataList = response.data['data']['searches'];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('v2ex_hot'),
+        title: Text('search_hot'),
       ),
       body: FutureBuilder(
         future: _loadData(),
@@ -36,8 +36,8 @@ class _V2exHotPageState extends State<V2exHotPage> {
                   child: InkWell(
                     onTap: () {},
                     child: ListTile(
-                      title: Text(map['title']),
-                      subtitle: Text(map['content']),
+                      title: Text(map['searchText']),
+                      subtitle: Text(map['searchOpt'].toString()),
                     ),
                   ),
                 );
