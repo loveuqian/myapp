@@ -39,8 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void getHttp() async {
     try {
       Dio dio = Dio();
-      Response response =
-          await dio.get("https://www.v2ex.com/api/topics/hot.json");
+      Response response = await dio
+          .get("https://web.cloudmall.co/api/v/4.3.17/shopping/global_control");
       print(response);
     } catch (e) {
       print(e.error);
