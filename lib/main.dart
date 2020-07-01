@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'webpagetest_page.dart';
+
 import 'package:random_color/random_color.dart';
 import 'package:dio/dio.dart';
 
@@ -10,10 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: RandomColor().randomMaterialColor(),
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Super Flutter'),
     );
@@ -65,6 +66,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            FlatButton(
+              onPressed: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WebPageTestPage()))
+              },
+              child: Text('webpagetest'),
             ),
           ],
         ),
